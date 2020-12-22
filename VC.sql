@@ -1,0 +1,4 @@
+﻿CREATE TABLE [vcoppe].[VC]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
