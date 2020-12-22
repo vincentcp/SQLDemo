@@ -23,8 +23,8 @@ pipeline {
 
       }
       steps {
+        unstash 'SQLDemoDacpac'
         powershell '& "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_DEV -TargetServerName:localhost'
-        unstash 'bin/Debug/SQLDemo.dacpac'
       }
     }
 
