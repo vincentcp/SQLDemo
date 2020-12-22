@@ -31,6 +31,7 @@ pipeline {
     stage('Deploy to INT') {
       steps {
         unstash 'SQLDemoDacpac'
+        input(message: 'Should we move to integration?', submitter: 'vincent')
         powershell ' & "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_INT -TargetServerName:localhost'
       }
     }
