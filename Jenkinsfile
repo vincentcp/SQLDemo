@@ -29,9 +29,12 @@ pipeline {
       }
     }
 
-    stage('Trigger Deploy to DEV') {
+    stage('Trigger Deploy to INT') {
       steps {
-        input(message: 'Should we move to integration?', submitter: 'vincent')
+        timeout(time: 3, unit: 'MINUTES') {
+          input(message: 'Should we move to integration?', submitter: 'vincent')
+        }
+
       }
     }
 
@@ -50,7 +53,10 @@ pipeline {
 
     stage('Trigger Deploy to PRD') {
       steps {
-        input(message: 'Should we move to production?', submitter: 'vincent')
+        timeout(time: 2, unit: 'MINUTES') {
+          input(message: 'Should we move to production?', submitter: 'vincent')
+        }
+
       }
     }
 
