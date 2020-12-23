@@ -1,6 +1,5 @@
 pipeline {
   agent none
-  
   stages {
     stage('Build SSDT project to dacpac') {
       agent {
@@ -29,14 +28,13 @@ pipeline {
         powershell '& "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"bin/Debug/SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_DEV -TargetServerName:localhost'
       }
     }
-    
+
     stage('Trigger Deploy to DEV') {
-      agent none 
       steps {
         input(message: 'Should we move to integration?', submitter: 'vincent')
       }
     }
-    
+
     stage('Deploy to INT') {
       agent {
         node {
@@ -49,9 +47,8 @@ pipeline {
         powershell ' & "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_INT -TargetServerName:localhost'
       }
     }
-    
+
     stage('Trigger Deploy to PRD') {
-      agent none 
       steps {
         input(message: 'Should we move to production?', submitter: 'vincent')
       }
