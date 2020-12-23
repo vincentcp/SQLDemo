@@ -29,6 +29,12 @@ pipeline {
     }
 
     stage('Deploy to INT') {
+      agent {
+        node {
+          label 'Windows'
+        }
+
+      }
       steps {
         unstash 'SQLDemoDacpac'
         input(message: 'Should we move to integration?', submitter: 'vincent')
@@ -37,9 +43,21 @@ pipeline {
     }
 
     stage('Deploy to PRD') {
+      agent {
+        node {
+          label 'Windows'
+        }
+
+      }
       steps {
         unstash 'SQLDemoDacpac'
         powershell ' & "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_PRD -TargetServerName:localhost'
+      }
+    }
+
+    stage('Trigger Deploy to DEV') {
+      steps {
+        input 'Should we move to integration?'
       }
     }
 
