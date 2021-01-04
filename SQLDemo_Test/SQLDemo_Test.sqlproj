@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>SQLDemo</Name>
+    <Name>SQLDemo_Test</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{399f188b-910d-4a28-8a3b-7457862d0005}</ProjectGuid>
+    <ProjectGuid>{bd78404d-8b20-4e2e-9d5d-d5b6b90774b9}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SQLDemo</RootNamespace>
-    <AssemblyName>SQLDemo</AssemblyName>
+    <RootNamespace>SQLDemo_Test</RootNamespace>
+    <AssemblyName>SQLDemo_Test</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -56,12 +56,27 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="vcoppe.sql" />
-    <Build Include="VC.sql" />
+    <ProjectReference Include="..\SQLDemo\SQLDemo.sqlproj">
+      <Name>SQLDemo</Name>
+      <Project>{399f188b-910d-4a28-8a3b-7457862d0005}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LocalDB.publish.xml" />
+    <ArtifactReference Include="tsqlt.dacpac">
+      <HintPath>tsqlt.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="RuntSQLtTests.sql" />
+    <None Include="ExportJUnitXML.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\TestMetadata.sql" />
   </ItemGroup>
 </Project>
