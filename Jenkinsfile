@@ -73,5 +73,11 @@ pipeline {
       }
     }
 
+    stage('Run tests') {
+      steps {
+        powershell 'sqlcmd -S localhost -d SQLDemo_DEV -i .\\SQLDemo_Test\\Script.PostDeployment1.sql '
+      }
+    }
+
   }
 }
