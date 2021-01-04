@@ -60,5 +60,6 @@
   <ItemGroup>
     <Build Include="vcoppe.sql" />
     <Build Include="VC.sql" />
+    <Build Include="CV.sql" />
   </ItemGroup>
 </Project>

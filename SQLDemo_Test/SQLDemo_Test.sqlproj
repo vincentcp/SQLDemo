@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Security\" />
+    <Folder Include="TestMetadata" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SQLDemo\SQLDemo.sqlproj">
@@ -78,5 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\TestMetadata.sql" />
+    <Build Include="TestMetadata\test metadata of VC and CV is equal.sql" />
   </ItemGroup>
 </Project>
