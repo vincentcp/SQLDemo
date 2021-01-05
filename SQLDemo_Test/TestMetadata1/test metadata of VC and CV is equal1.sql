@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [TestMetadata].[test metadata of VC and CV is equal]
+﻿CREATE PROCEDURE [TestMetadata1].[test metadata of VC and CV is equal1]
 AS
 BEGIN
 	EXEC tSQLt.AssertResultSetsHaveSameMetadata 
