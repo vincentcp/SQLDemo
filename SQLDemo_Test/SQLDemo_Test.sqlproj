@@ -75,8 +75,12 @@
     </ArtifactReference>
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="RuntSQLtTests.sql" />
-    <None Include="ExportJUnitXML.sql" />
+    <None Include="RuntSQLtTests.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExportJUnitXML.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\TestMetadata.sql" />
