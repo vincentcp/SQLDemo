@@ -26,6 +26,7 @@ pipeline {
       steps {
         unstash 'SQLDemoDacpac'
         powershell '& "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"SQLDemo\\bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_DEV -TargetServerName:localhost'
+        cleanWs(cleanWhenSuccess: true, skipWhenFailed: true)
       }
     }
 
@@ -43,6 +44,10 @@ pipeline {
         powershell 'sqlcmd -S localhost -d SQLDemo_DEV -y 0 -i .\\SQLDemo_Test\\ExportJUnitXML.sql -o DEV_tSQLt.xml'
         junit 'DEV_tSQLt.xml'
         archiveArtifacts 'DEV_tSQLt.xml'
+        def hasNoFailures = powershell(returnStdout: true, script: '(([xml](Get-Content -Path DEV_tSQLt.xml)).SelectNodes(\'//failure\')).Count -eq 0')
+        println hasNoFailures
+        println hasNoFailures.getClass()
+        cleanWs(cleanWhenSuccess: true, skipWhenFailed: true)
       }
     }
 
@@ -56,6 +61,7 @@ pipeline {
       steps {
         unstash 'SQLDemoDacpac'
         powershell ' & "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"SQLDemo\\bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_INT -TargetServerName:localhost'
+        cleanWs(cleanWhenSuccess: true, skipWhenFailed: true)
       }
     }
 
@@ -69,6 +75,7 @@ pipeline {
       steps {
         unstash 'SQLDemoDacpac'
         powershell ' & "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"SQLDemo\\bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_PRD -TargetServerName:localhost'
+        cleanWs(cleanWhenSuccess: true, skipWhenFailed: true)
       }
     }
 
