@@ -42,15 +42,7 @@ pipeline {
         powershell 'sqlcmd -S localhost -d SQLDemo_DEV -i .\\SQLDemo_Test\\RuntSQLtTests.sql '
         powershell 'sqlcmd -S localhost -d SQLDemo_DEV -y 0 -i .\\SQLDemo_Test\\ExportJUnitXML.sql -o DEV_tSQLt.xml'
         junit 'DEV_tSQLt.xml'
-      }
-    }
-
-    stage('Trigger Deploy to INT') {
-      steps {
-        timeout(time: 3, unit: 'MINUTES') {
-          input(message: 'Should we move to integration?', submitter: 'vincent')
-        }
-
+        archiveArtifacts 'DEV_tSQLt.xml'
       }
     }
 
@@ -64,15 +56,6 @@ pipeline {
       steps {
         unstash 'SQLDemoDacpac'
         powershell ' & "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"SQLDemo\\bin\\Debug\\SQLDemo.dacpac" -TargetDatabaseName:SQLDemo_INT -TargetServerName:localhost'
-      }
-    }
-
-    stage('Trigger Deploy to PRD') {
-      steps {
-        timeout(time: 2, unit: 'MINUTES') {
-          input(message: 'Should we move to production?', submitter: 'vincent')
-        }
-
       }
     }
 
