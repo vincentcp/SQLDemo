@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [vcoppe].[VCP]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Name] NCHAR(10) NOT NULL 
+    [Name] NCHAR(10) NULL 
 )
