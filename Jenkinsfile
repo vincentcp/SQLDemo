@@ -42,9 +42,12 @@ pipeline {
         powershell '& "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\140\\sqlpackage.exe" -Action:Publish  -Sourcefile:"SQLDemo_Test\\bin\\Debug\\SQLDemo_Test.dacpac" -TargetDatabaseName:SQLDemo_DEV -TargetServerName:localhost'
         powershell 'sqlcmd -S localhost -d SQLDemo_DEV -i .\\SQLDemo_Test\\RuntSQLtTests.sql '
         powershell 'sqlcmd -S localhost -d SQLDemo_DEV -y 0 -i .\\SQLDemo_Test\\ExportJUnitXML.sql -o DEV_tSQLt.xml'
+        powershell 'sqlcmd -S localhost -d SQLDemo_DEV -i .\\SQLDemo_Test\\RuntSQLtTests1.sql '
+        powershell 'sqlcmd -S localhost -d SQLDemo_DEV -y 0 -i .\\SQLDemo_Test\\ExportJUnitXML.sql -o DEV_tSQLt1.xml'
         junit 'DEV_tSQLt.xml'
-        junit 'DEV_tSQLt.xml'
+        junit 'DEV_tSQLt1.xml'
         archiveArtifacts 'DEV_tSQLt.xml'
+        archiveArtifacts 'DEV_tSQLt1.xml'
         script {
           String hasNoFailures = powershell(
             script: '(([xml](Get-Content -Path DEV_tSQLt.xml)).SelectNodes(\'//failure\')).Count -eq 0',
