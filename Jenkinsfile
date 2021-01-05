@@ -49,8 +49,7 @@ pipeline {
             script: '(([xml](Get-Content -Path DEV_tSQLt.xml)).SelectNodes(\'//failure\')).Count -eq 0',
             returnStdout: true)
             println hasNoFailures
-            println hasNoFailures.getClass()
-            if (hasNoFailures!="True") {
+            if (!hasNoFailures.equal("True")) {
               error('There was a failure while testing')
             }
           }
