@@ -45,10 +45,15 @@ pipeline {
         junit 'DEV_tSQLt.xml'
         archiveArtifacts 'DEV_tSQLt.xml'
         script {
-          hasNoFailures = powershell(
+          String hasNoFailures = powershell(
             script: '(([xml](Get-Content -Path DEV_tSQLt.xml)).SelectNodes(\'//failure\')).Count -eq 0',
             returnStdout: true)
-            if (!hasNoFailures.equals("True")) {
+            println hasNoFailures 
+            println hasNoFailures.equals("True") 
+            String mystr = new String("True")
+            println hasNoFailures.equals(mystr)
+            println hasNoFailures.equals(String(True))
+            if (!hasNoFailures.equals(String("True"))) {
               error('There was a failure while testing')
             }
           }
