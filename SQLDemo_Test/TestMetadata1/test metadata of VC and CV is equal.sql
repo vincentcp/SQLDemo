@@ -2,5 +2,5 @@
 AS
 BEGIN
 	EXEC tSQLt.AssertResultSetsHaveSameMetadata 
-		'select top(0) Id from vcoppe.CV', 'select top(0) Id from vcoppe.VC'
+		'select top(0) * from vcoppe.CV', 'select top(0) * from vcoppe.VC'
 END
