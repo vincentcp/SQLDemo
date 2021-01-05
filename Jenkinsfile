@@ -45,6 +45,7 @@ pipeline {
         junit 'DEV_tSQLt.xml'
         archiveArtifacts 'DEV_tSQLt.xml'
         cleanWs(cleanWhenSuccess: true, skipWhenFailed: true)
+        powershell(script: '(([xml](Get-Content -Path .\\runtsqlt.xml)).SelectNodes(\'//failure\')).Count -eq 0', returnStdout: true)
       }
     }
 
