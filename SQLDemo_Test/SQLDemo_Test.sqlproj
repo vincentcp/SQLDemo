@@ -59,6 +59,7 @@
     <Folder Include="Security\" />
     <Folder Include="TestMetadata" />
     <Folder Include="TestMetadata1" />
+    <Folder Include="TestMetadata2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SQLDemo\SQLDemo.sqlproj">
@@ -93,8 +94,19 @@
     <Build Include="TestMetadata1\test metadata of VC and CV is equal3.sql" />
     <Build Include="TestMetadata1\test metadata of VC and CV is equal4.sql" />
     <Build Include="Security\TestMetadata1.sql" />
+    <Build Include="TestMetadata2\test metadata of VC and CV is equal.sql" />
+    <Build Include="TestMetadata2\test metadata of VC and CV is equal1.sql" />
+    <Build Include="TestMetadata2\test metadata of VC and CV is equal2.sql" />
+    <Build Include="TestMetadata2\test metadata of VC and CV is equal3.sql" />
+    <Build Include="TestMetadata2\test metadata of VC and CV is equal4.sql" />
+    <Build Include="Security\TestMetadata2.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="localDB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RuntSQLtTests1.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
