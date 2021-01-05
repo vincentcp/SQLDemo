@@ -48,8 +48,7 @@ pipeline {
           hasNoFailures = powershell(
             script: '(([xml](Get-Content -Path DEV_tSQLt.xml)).SelectNodes(\'//failure\')).Count -eq 0',
             returnStdout: true)
-            println hasNoFailures
-            if (!hasNoFailures.equal("True")) {
+            if (!hasNoFailures.equals("True")) {
               error('There was a failure while testing')
             }
           }
