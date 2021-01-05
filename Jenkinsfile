@@ -44,7 +44,7 @@ pipeline {
         powershell 'sqlcmd -S localhost -d SQLDemo_DEV -y 0 -i .\\SQLDemo_Test\\ExportJUnitXML.sql -o DEV_tSQLt.xml'
         junit 'DEV_tSQLt.xml'
         archiveArtifacts 'DEV_tSQLt.xml'
-        hasNoFailure = """${powershell(
+        println """${powershell(
                       script: '(([xml](Get-Content -Path DEV_tSQLt.xml)).SelectNodes(\'//failure\')).Count -eq 0', 
                       returnStdout: true
         )}"""
