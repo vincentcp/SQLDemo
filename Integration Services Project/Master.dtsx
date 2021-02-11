@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{AAF96938-0E35-4912-9B13-30656BF4B528}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{B16CAF75-ED91-497C-9928-A78DDAE982D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -34,6 +34,23 @@
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Package Task 1"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{3C1B00F7-7AB6-4EEE-A5C1-B1BB20579883}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Package Task 1"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Package1.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -50,7 +67,11 @@
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Execute Package Task"
-          TopLeft="381.666651500597,127.400001012484" />
+          TopLeft="236.666657262379,93.6000007438657" />
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\Execute Package Task 1"
+          TopLeft="235.833323962159,138.66666776869" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

@@ -9,6 +9,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLDemo_Test", "SQLDemo_Tes
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services Project", "Integration Services Project\Integration Services Project.dtproj", "{0E7D062A-F418-4AD5-B5F5-6C82B067BD03}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLDemo_SRC", "SQLDemo_SRC\SQLDemo_SRC.sqlproj", "{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "BIML", "BIML\BIML.dtproj", "{7416B1C8-EAA6-44CC-987C-9682A74C03F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,21 @@ Global
 		{0E7D062A-F418-4AD5-B5F5-6C82B067BD03}.Development|Any CPU.Build.0 = Development
 		{0E7D062A-F418-4AD5-B5F5-6C82B067BD03}.Release|Any CPU.ActiveCfg = Development
 		{0E7D062A-F418-4AD5-B5F5-6C82B067BD03}.Release|Any CPU.Build.0 = Development
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9DEB07-60F7-4F92-A429-A2F750FFC14D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7416B1C8-EAA6-44CC-987C-9682A74C03F2}.Debug|Any CPU.ActiveCfg = Development
+		{7416B1C8-EAA6-44CC-987C-9682A74C03F2}.Debug|Any CPU.Build.0 = Development
+		{7416B1C8-EAA6-44CC-987C-9682A74C03F2}.Development|Any CPU.ActiveCfg = Development
+		{7416B1C8-EAA6-44CC-987C-9682A74C03F2}.Development|Any CPU.Build.0 = Development
+		{7416B1C8-EAA6-44CC-987C-9682A74C03F2}.Release|Any CPU.ActiveCfg = Development
+		{7416B1C8-EAA6-44CC-987C-9682A74C03F2}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

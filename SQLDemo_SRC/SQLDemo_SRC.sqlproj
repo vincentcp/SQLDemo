@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>SQLDemo</Name>
+    <Name>SQLDemo_SRC</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{399f188b-910d-4a28-8a3b-7457862d0005}</ProjectGuid>
+    <ProjectGuid>{ac9deb07-60f7-4f92-a429-a2f750ffc14d}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SQLDemo</RootNamespace>
-    <AssemblyName>SQLDemo</AssemblyName>
+    <RootNamespace>SQLDemo_SRC</RootNamespace>
+    <AssemblyName>SQLDemo_SRC</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -60,11 +60,9 @@
   <ItemGroup>
     <Build Include="vcoppe.sql" />
     <Build Include="VC.sql" />
-    <Build Include="CV.sql" />
-    <Build Include="VCP.sql" />
+    <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SQLDemo.publish.xml" />
-    <None Include="SSISDB.sql" />
+    <None Include="SRC.publish.xml" />
   </ItemGroup>
 </Project>

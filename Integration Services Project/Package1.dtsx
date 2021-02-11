@@ -1,38 +1,32 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="1/19/2021 3:57:59 PM"
+  DTS:CreationDate="1/25/2021 1:48:19 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-7KLVLGS"
   DTS:CreatorName="DESKTOP-7KLVLGS\vince"
-  DTS:DTSID="{E06DBB41-1AF1-4208-8078-7B74694C645E}"
+  DTS:DTSID="{E7C212F1-AFF5-4572-9B01-D1DBF01FF945}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{0C53BB0F-DF54-4637-84C0-1D8A3B0E54DB}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{708F78F3-E095-4C33-83AB-23704693C0AA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
-  <DTS:LoggingOptions
-    DTS:FilterKind="0"
-    DTS:LoggingMode="2" />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{7CBF946F-D0A2-4B01-AD79-957AAC6A8B3F}"
+      DTS:DTSID="{77367EBF-CFC7-4D16-918E-B8331060FD10}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="2" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -53,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[vcoppe].[CV]</property>
+                  name="OpenRowset">[vcoppe].[VCP]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -213,8 +207,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{CA003BEB-E262-44EC-8816-E0D38D6C110A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.SQLDemo_DEV]"
+                  connectionManagerID="{4ED22F40-CE0B-430F-B3BE-4AA5A5D3C9AD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SQLDemo_SRC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -316,7 +310,7 @@
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="453.333315319486,94.4666674174203" />
+          TopLeft="200.833325352934,181.133334772852" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -328,25 +322,25 @@
         <NodeLayout
           Size="152,41.6"
           Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="555.833311246502,141.266667789353" />
+          TopLeft="67.499999701977,60" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="548.333311544525,238.333335227436" />
+          TopLeft="60,157.066667438083" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="632.883311395514,182.866667789353">
+          TopLeft="144.549999850989,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.4666674380831"
+              EndConnector="0,55.466667438083"
               Start="0,0"
-              End="0,47.9666674380831">
+              End="0,47.966667438083">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.9666674380831" />
+                    End="0,47.966667438083" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -359,7 +353,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -372,7 +366,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -60,6 +60,7 @@
     <Folder Include="TestMetadata" />
     <Folder Include="TestMetadata1" />
     <Folder Include="TestMetadata2" />
+    <Folder Include="TestGenAuto" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SQLDemo\SQLDemo.sqlproj">
@@ -74,6 +75,11 @@
       <HintPath>tsqlt.dacpac</HintPath>
       <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
     </ArtifactReference>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="RuntSQLtTests.sql">
@@ -82,6 +88,8 @@
     <None Include="ExportJUnitXML.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="localDB.publish.xml" />
+    <None Include="DEV.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\TestMetadata.sql" />
@@ -100,13 +108,19 @@
     <Build Include="TestMetadata2\test metadata of VC and CV is equal3.sql" />
     <Build Include="TestMetadata2\test metadata of VC and CV is equal4.sql" />
     <Build Include="Security\TestMetadata2.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="localDB.publish.xml" />
+    <Build Include="Security\GenAutoTest.sql" />
+    <Build Include="TestGenAuto\generate tests.sql" />
+    <Build Include="TestGenAuto\test 0.sql" />
+    <Build Include="TestGenAuto\exec package.sql" />
+    <Build Include="TestGenAuto\test master package.sql" />
+    <Build Include="TestGenAuto\test master package 1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RuntSQLtTests1.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
