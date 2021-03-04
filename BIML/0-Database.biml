@@ -1,0 +1,30 @@
+﻿<#@ template tier="0" #>
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <# 
+        var source = SchemaManager.CreateConnectionNode("DEV", "Server=DESKTOP-7KLVLGS;Initial Catalog=AdventureWorksDW2012;Integrated Security=SSPI;Provider=SQLNCLI11.1");
+        var md = source.GetDatabaseSchema();
+    #>
+    <Connections>
+        <OleDbConnection Name="Adventure" ConnectionString="Server=localhost;Initial Catalog=AdventureWorksDW2021;Integrated Security=SSPI;Provider=SQLNCLI11;" />
+        <OleDbConnection Name="Target" ConnectionString="Server=localhost;Initial Catalog=SQLDemo_DEV;Integrated Security=SSPI;Provider=SQLNCLI11;" />
+    </Connections>
+    <Databases>
+        <Database Name="DB" ConnectionName="Adventure" />
+    </Databases>
+    <Schemas>
+        <Schema Name="dbo" DatabaseName="DB"/>
+    </Schemas>
+    <Tables>
+        <Table Name="trialtable" SchemaName="DB.dbo">
+            <Columns>
+                <Column Name="DBVersion" DataType="String" Length="50" IsNullable="true" />
+            </Columns>
+        </Table>
+    <#foreach (var table in md.TableNodes) {#>
+        <Table Name="<#=table.Name#>" SchemaName="DB.dbo">
+            <Columns><#=table.Columns.GetBiml()#></Columns>
+            <Keys><#=table.Keys.GetBiml()#></Keys>
+        </Table>
+    <#  }#>
+    </Tables>
+</Biml>
